@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Check — Digital Wellbeing Estimator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <span class="glow glow-a"></span>
+  <span class="glow glow-b"></span>
+  <span class="glow glow-c"></span>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span>Signal&nbsp;Check</span>
+  </div>
+  <p class="topbar-meta">Student digital&nbsp;wellbeing estimator</p>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Digital habits → mental wellbeing</p>
+    <h1>How's your mind,<br><em>really?</em></h1>
+    <p class="hero-sub">Answer a few questions about your screen time, sleep, study load, and stress.
+      A model trained on student survey data looks for the pattern underneath it — then reflects
+      a signal back to you.</p>
+  </section>
+
+  <section class="workspace">
+
+    <form id="predict-form" class="form-panel" novalidate>
+
+      <fieldset>
+        <legend><span class="legend-tag">About you</span></legend>
+        <div class="field-grid cols-2">
+
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="Age" min="10" max="100" step="1" placeholder="e.g. 21" required>
+            <span class="field-hint">10–100</span>
+            <span class="field-error" id="err-age"></span>
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="Country" list="country-list" placeholder="e.g. India" autocomplete="off" required>
+            <datalist id="country-list">
+              <option value="India"><option value="USA"><option value="Canada">
+              <option value="Australia"><option value="UK"><option value="Germany">
+              <option value="Mexico"><option value="Turkey"><option value="France">
+            </datalist>
+            <span class="field-hint">Any country — grouped automatically</span>
+            <span class="field-error" id="err-country"></span>
+          </div>
+
+          <div class="field field-span-2">
+            <label>Gender</label>
+            <div class="pill-group" id="group-gender" role="radiogroup" aria-label="Gender">
+              <input type="radio" name="Gender" id="gender-male" value="Male" required>
+              <label class="pill" for="gender-male">Male</label>
+              <input type="radio" name="Gender" id="gender-female" value="Female">
+              <label class="pill" for="gender-female">Female</label>
+            </div>
+            <span class="field-error" id="err-Gender"></span>
+          </div>
+
+          <div class="field field-span-2">
+            <label>Academic level</label>
+            <div class="pill-group" id="group-academic" role="radiogroup" aria-label="Academic level">
+              <input type="radio" name="Academic_Level" id="al-hs" value="High School" required>
+              <label class="pill" for="al-hs">High School</label>
+              <input type="radio" name="Academic_Level" id="al-ug" value="Undergraduate">
+              <label class="pill" for="al-ug">Undergraduate</label>
+              <input type="radio" name="Academic_Level" id="al-g" value="Graduate">
+              <label class="pill" for="al-g">Graduate</label>
+            </div>
+            <span class="field-error" id="err-Academic_Level"></span>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="legend-tag">Digital habits</span></legend>
+        <div class="field-grid cols-2">
+
+          <div class="field">
+            <label for="platform">Most-used platform</label>
+            <select id="platform" name="Most_Used_Platform" required>
+              <option value="" disabled selected hidden>Choose a platform</option>
+              <option>Facebook</option><option>LinkedIn</option><option>Instagram</option>
+              <option>Snapchat</option><option>Twitter</option><option>YouTube</option>
+              <option>TikTok</option><option>LINE</option><option>KakaoTalk</option>
+              <option>VKontakte</option><option>WhatsApp</option><option>WeChat</option>
+            </select>
+            <span class="field-error" id="err-Most_Used_Platform"></span>
+          </div>
+
+          <div class="field">
+            <label for="unlocks">Daily phone unlocks</label>
+            <input type="number" id="unlocks" name="Daily_Unlocks" min="0" step="1" placeholder="e.g. 60" required>
+            <span class="field-hint">0 or more</span>
+            <span class="field-error" id="err-Daily_Unlocks"></span>
+          </div>
+
+          <div class="field field-span-2">
+            <label>Main purpose of use</label>
+            <div class="pill-group" id="group-purpose" role="radiogroup" aria-label="Purpose of use">
+              <input type="radio" name="Purpose_Of_Use" id="pu-net" value="Networking" required>
+              <label class="pill" for="pu-net">Networking</label>
+              <input type="radio" name="Purpose_Of_Use" id="pu-edu" value="Education">
+              <label class="pill" for="pu-edu">Education</label>
+              <input type="radio" name="Purpose_Of_Use" id="pu-ent" value="Entertainment">
+              <label class="pill" for="pu-ent">Entertainment</label>
+              <input type="radio" name="Purpose_Of_Use" id="pu-news" value="News">
+              <label class="pill" for="pu-news">News</label>
+            </div>
+            <span class="field-error" id="err-Purpose_Of_Use"></span>
+          </div>
+
+          <div class="field field-span-2 slider-field">
+            <div class="slider-label-row">
+              <label for="usage">Avg. daily usage</label>
+              <output id="usage-out" for="usage">0.0 h</output>
+            </div>
+            <input type="range" id="usage" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.1" value="0">
+            <span class="field-error" id="err-Avg_Daily_Usage_Hours"></span>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="legend-tag">Life balance</span></legend>
+        <div class="field-grid cols-1">
+
+          <div class="field slider-field">
+            <div class="slider-label-row">
+              <label for="study">Study hours per day</label>
+              <output id="study-out" for="study">0.0 h</output>
+            </div>
+            <input type="range" id="study" name="Study_Hours" min="0" max="24" step="0.1" value="0">
+            <span class="field-error" id="err-Study_Hours"></span>
+          </div>
+
+          <div class="field slider-field">
+            <div class="slider-label-row">
+              <label for="activity">Physical activity per day</label>
+              <output id="activity-out" for="activity">0.0 h</output>
+            </div>
+            <input type="range" id="activity" name="Physical_Activity_Hours" min="0" max="3" step="0.1" value="0">
+            <span class="field-error" id="err-Physical_Activity_Hours"></span>
+          </div>
+
+          <div class="field slider-field">
+            <div class="slider-label-row">
+              <label for="sleep">Sleep per night</label>
+              <output id="sleep-out" for="sleep">0.0 h</output>
+            </div>
+            <input type="range" id="sleep" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.1" value="0">
+            <span class="field-error" id="err-Sleep_Hours_Per_Night"></span>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="legend-tag">How you've been feeling</span></legend>
+        <div class="field field-span-2">
+          <label>Recent stress level</label>
+          <div class="pill-group severity" id="group-stress" role="radiogroup" aria-label="Stress level">
+            <input type="radio" name="Stress_Level" id="sl-low" value="Low" required>
+            <label class="pill pill-low" for="sl-low">Low</label>
+            <input type="radio" name="Stress_Level" id="sl-med" value="Medium">
+            <label class="pill pill-medium" for="sl-med">Medium</label>
+            <input type="radio" name="Stress_Level" id="sl-high" value="High">
+            <label class="pill pill-high" for="sl-high">High</label>
+            <input type="radio" name="Stress_Level" id="sl-vhigh" value="Very High">
+            <label class="pill pill-veryhigh" for="sl-vhigh">Very High</label>
+          </div>
+          <span class="field-error" id="err-Stress_Level"></span>
+        </div>
+      </fieldset>
+
+    </form>
+
+    <aside class="signal-panel">
+      <div class="orb-stage">
+        <svg class="orb-svg" viewBox="0 0 220 220" aria-hidden="true">
+          <circle class="orb-ring-track" cx="110" cy="110" r="92"></circle>
+          <circle class="orb-ring-progress" id="orb-ring" cx="110" cy="110" r="92"></circle>
+          <circle class="orb-core orb-core-3" cx="110" cy="110" r="58"></circle>
+          <circle class="orb-core orb-core-2" cx="110" cy="110" r="50"></circle>
+          <circle class="orb-core orb-core-1" cx="110" cy="110" r="42"></circle>
+        </svg>
+        <div class="orb-readout">
+          <span id="orb-value">—</span>
+          <span id="orb-label">Awaiting input</span>
+        </div>
+      </div>
+
+      <p id="panel-message" class="panel-message">Fill in the form, then check your signal.</p>
+
+      <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+      <button type="submit" form="predict-form" id="submit-btn" class="submit-btn">
+        <span class="btn-label">Check my signal</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+
+      <div id="recap-chips" class="recap-chips hidden"></div>
+    </aside>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Estimate only, not a diagnosis. If you're struggling, please talk to someone you trust or a professional.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
