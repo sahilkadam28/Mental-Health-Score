@@ -9,7 +9,7 @@ Predicting a student's mental health score from social media usage, sleep, study
 
 <p align="center">
   <img src="assets/app_screenshot.png" width="48%" alt="Signal Check form" />
-  <img src="assets/app_screenshot(2).png" width="48%" alt="Signal Check prediction result" />
+  <img src="assets/app_screenshot (2).png" width="48%" alt="Signal Check prediction result" />
 </p>
 
 ## 🔗 Live Demo
@@ -171,7 +171,6 @@ Health check.
 
 ## 🗺️ Roadmap / Future Improvements
 
-- [x] Deploy the API and link it here as a live demo
 - [ ] Add automated tests for the API and input validation
 - [ ] Add a Dockerfile for one-command setup
 - [ ] Try a wider hyperparameter search (grid search / more iterations) to see if it can beat the base Random Forest's 0.878 test R²
@@ -186,8 +185,3 @@ This project is for educational purposes only. Predictions are based on a limite
 
 **Sahil Kadam**
 [GitHub](https://github.com/sahilkadam28)
-
-## 📄 License
-
-<!-- Add a LICENSE file to the repo and name it here, e.g. MIT -->
-This project is currently unlicensed. Consider adding an [MIT License](https://choosealicense.com/licenses/mit/) if you want others to freely use/reuse the code.
