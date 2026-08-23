@@ -8,8 +8,8 @@ Predicting a student's mental health score from social media usage, sleep, study
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 <p align="center">
-  <img src="assets/app_form.png" width="48%" alt="Signal Check form" />
-  <img src="assets/app_prediction_result.png" width="48%" alt="Signal Check prediction result" />
+  <img src="assets/app_screenshot.png" width="48%" alt="Signal Check form" />
+  <img src="assets/app_screenshot(2).png" width="48%" alt="Signal Check prediction result" />
 </p>
 
 ## 🔗 Live Demo
