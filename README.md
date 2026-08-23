@@ -50,8 +50,6 @@ This project explores the relationship between students' social media habits and
 - Lifestyle: `Study_Hours`, `Physical_Activity_Hours`, `Sleep_Hours_Per_Night`
 - Wellbeing: `Stress_Level`, target `Mental_Health_Score` (range 3.6–9.4, mean 6.23)
 
-> Add source/attribution here if the CSV came from Kaggle or another public dataset — worth crediting for credibility.
-
 ### Score distribution
 
 ![Score Distribution](assets/score_distribution.png)
