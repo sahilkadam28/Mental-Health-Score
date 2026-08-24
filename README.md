@@ -1,4 +1,4 @@
-# 🧠 Mental-Health-Score
+# 🧠 Signal Check — a digital wellbeing estimator
 
 Predicting a student's mental health score from social media usage, sleep, study habits, and stress level — using a scikit-learn regression model served through a FastAPI backend, with a lightweight web frontend for live predictions.
 
