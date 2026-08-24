@@ -89,7 +89,7 @@ See [`ML_Project.ipynb`](./ML_Project.ipynb) for the full data exploration, feat
 ## 📁 Project Structure
 
 ```
-Mental-Health-Score/
+Signal-Check-A-Digital-Wellbeing-Estimator/
 ├── ML_Project.ipynb                                  # Data exploration, feature engineering, model training
 ├── Mental_Health_Model.pkl                            # Serialized trained model
 ├── Student Social Media And Mental Health Impact.csv   # Dataset
@@ -112,8 +112,8 @@ Mental-Health-Score/
 ### Installation
 
 ```bash
-git clone https://github.com/sahilkadam28/Mental-Health-Score.git
-cd Mental-Health-Score
+git clone https://github.com/sahilkadam28/Signal-Check-A-Digital-Wellbeing-Estimator.git
+cd Signal-Check-A-Digital-Wellbeing-Estimator
 pip install -r requirements.txt
 ```
 
